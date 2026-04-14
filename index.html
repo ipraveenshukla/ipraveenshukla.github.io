@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Praveen Shukla | Portfolio</title>
+  <meta name="description" content="Praveen Shukla — Data Professional skilled in SQL, Python, Power BI, Tableau & Excel. Transforming raw data into strategic business insights."/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+  <style>
+/* ═══════════════════════════════════════════════
+   CORE DESIGN SYSTEM
+═══════════════════════════════════════════════ */
+:root {
+  --accent: #c8a85c;
+  --accent-dim: #a8883c;
+  --bg: #0a0a0c;
+  --surface: #121216;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --nav-h: 70px;
+  --transition: 0.25s ease;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; transition: var(--transition); }
+ul { list-style: none; }
+
+/* ═══════════════════════════════════════════════
+   LAYOUT COMPONENTS
+═══════════════════════════════════════════════ */
+section { padding: 8rem 10vw; position: relative; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+header {
+  position: fixed; top: 0; width: 100%; height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; z-index: 1000;
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+}
+
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; }
+.nav-logo span { color: var(--accent); }
+
+nav ul { display: flex; gap: 2rem; }
+nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; color: var(--text-muted); text-transform: uppercase; }
+nav a:hover { color: var(--accent); }
+
+.btn-primary {
+  background: var(--accent); color: #000;
+  padding: 0.8rem 1.5rem; font-weight: 600; font-size: 0.85rem;
+  border-radius: 4px; transition: transform 0.2s ease;
+  display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(200,168,92,0.2); }
+
+/* ═══════════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════════ */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: radial-gradient(circle at 80% 20%, rgba(200,168,92,0.05) 0%, transparent 50%);
+}
+.hero-content { max-width: 800px; }
+.hero-tagline { color: var(--accent); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem; display: block; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-desc { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem; }
+.hero-actions { display: flex; gap: 1.5rem; align-items: center; }
+
+/* ═══════════════════════════════════════════════
+   ABOUT SECTION
+═══════════════════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.about-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #1a1a1e;
+}
+.about-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ═══════════════════════════════════════════════
+   SKILLS GRID
+═══════════════════════════════════════════════ */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem;
+}
+.skill-card {
+  background: var(--surface); padding: 2rem; border: 1px solid var(--border); border-radius: 8px;
+}
+.skill-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: var(--accent); }
+.skill-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.skill-tag { background: rgba(255,255,255,0.05); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem; color: var(--text-muted); border: 1px solid var(--border); }
+
+/* ═══════════════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════════════ */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.project-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  display: flex; flex-direction: column; transition: border-color 0.3s ease;
+  overflow: hidden;
+}
+.project-card:hover { border-color: var(--accent); }
+
+.project-card h3 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+.project-card h3 a:hover {
+  color: var(--accent);
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 220px;
+  background: #1a1a1e;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.project-card:hover .project-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-meta { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+.project-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; }
+.project-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
+.project-links { display: flex; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+.project-link { font-size: 0.8rem; font-weight: 600; color: var(--accent); }
+
+/* ═══════════════════════════════════════════════
+   EXPERIENCE
+═══════════════════════════════════════════════ */
+.exp-item { border-left: 1px solid var(--accent); padding-left: 2rem; margin-bottom: 3rem; position: relative; }
+.exp-item::before { content: ''; position: absolute; left: -5px; top: 0; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.exp-role { font-family: 'Playfair Display', serif; font-size: 1.4rem; }
+.exp-date { font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+.exp-company { font-weight: 500; color: var(--text-muted); display: block; margin-bottom: 1rem; }
+.exp-points li { margin-bottom: 0.8rem; font-size: 0.95rem; color: var(--text-muted); list-style-type: '→ '; padding-left: 0.5rem; }
+
+/* ═══════════════════════════════════════════════
+   CONTACT & SOCIAL
+═══════════════════════════════════════════════ */
+#contact { text-align: center; background: #0e0e11; }
+.contact-wrap { max-width: 800px; margin: 0 auto; }
+
+.social-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1rem; 
+  margin-top: 3rem; 
+}
+.social-box { 
+  background: var(--surface); 
+  padding: 1.5rem; 
+  border: 1px solid var(--border); 
+  border-radius: 8px; 
+  font-size: 0.9rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.social-box:hover { border-color: var(--accent); }
+
+footer { padding: 3rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.8rem; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVENESS
+═══════════════════════════════════════════════ */
+@media (max-width: 992px) {
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav { display: none; }
+  section { padding: 5rem 5vw; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .social-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-logo">Praveen <span>Shukla</span></div>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="Resume.pdf" class="btn-primary" style="padding: 0.5rem 1rem;">Resume</a>
+</header>
+
+<section id="hero">
+  <div class="hero-content">
+    <span class="hero-tagline">Data Professional & Strategist</span>
+    <h1>Transforming Data into <br><em>Business Intelligence</em>.</h1>
+    <p class="hero-desc">Bridging the gap between raw datasets and strategic decisions through SQL, Python, and advanced visualization. Formerly at UNICEF and Uber.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Portfolio</a>
+      <a href="#contact" style="font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid var(--accent);">Get In Touch →</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 2rem;">An analytical mindset with <br><span style="color:var(--accent)">corporate precision.</span></h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">
+          I don't just build dashboards; I build <strong>decision-support tools</strong>. With a background spanning donor analytics at UNICEF and operations at Uber, I bring a mix of high-stakes precision and deep analytical rigour to every dataset.
+        </p>
+        <p style="color: var(--text-muted); font-size: 1.1rem;">
+          BSc graduate from the University of Delhi, ranking 1st among 1,500+ students in national competitions and recognized as an INSPIRE Scholar by the Department of Science and Technology.
+        </p>
+      </div>
+      
+      <div class="about-image-wrapper">
+        <img src="0_Picture.jpg" alt="Praveen Shukla - Data Professional Workspace" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background: #0e0e11;">
+  <div class="container">
+    <h2 style="font-family: 'Playfair Display'; margin-bottom: 3rem;">Technical Stack</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Analysis & Logic</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Advanced SQL (CTEs, Window Functions), Python (Pandas/NumPy), and complex Excel modelling.</p>
+        <div class="skill-list">
+          <span class="skill-tag">PostgreSQL</span><span class="skill-tag">DBeaver</span><span class="skill-tag">Jupyter</span><span class="skill-tag">Power Query</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Visualization</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Building stakeholder-ready BI solutions using Power BI (DAX), Tableau, and Seaborn.</p>
+        <div class="skill-list">
+          <span class="skill-tag">Power BI</span><span class="skill-tag">Tableau Public</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Looker</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Workflow</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Version control, prompt engineering for data workflows, and CRM integration.</p>
+        <div class="skill-list">
+          <span class="skill-tag">Git/GitHub</span><span class="skill-tag">Salesforce</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 style="font-family: 'Playfair Display'; margin-bottom: 3rem;">Selected Work</h2>
+    <div class="project-grid">
+      
+      <div class="project-card">
+        <a href="https://public.tableau.com/views/Sales_Customer_Analytics_Dashboard/SalesDashboard" target="_blank" class="project-image-wrapper">
+          <img src="1_Tableau.gif" alt="Retail Performance Tableau Dashboard" />
+        </a>
+        <div class="project-content">
+          <span class="project-meta">Tableau • Business Intelligence</span>
+          <h3><a href="https://public.tableau.com/views/Sales_Customer_Analytics_Dashboard/SalesDashboard" target="_blank">Retail Performance Dashboard</a></h3>
+          <p>A comprehensive tracking system for $600K+ in retail sales, identifying key profit killers and surfacing a $66M re-engagement opportunity through customer behavior analysis.</p>
+          <div class="project-links">
+            <a href="https://public.tableau.com/views/Sales_Customer_Analytics_Dashboard/SalesDashboard" target="_blank" class="project-link">View Dashboard ↗</a>
+            <a href="https://github.com/ipraveenshukla/Tableau_Business_Dashboard_Project" target="_blank" class="project-link">Codebase ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <a href="https://github.com/ipraveenshukla/Python_Data_Projects" target="_blank" class="project-image-wrapper">
+          <img src="2_Python.png" alt="Python Data Science Job Market EDA" />
+        </a>
+        <div class="project-content">
+          <span class="project-meta">Python • Market Analysis</span>
+          <h3><a href="https://github.com/ipraveenshukla/Python_Data_Projects" target="_blank">Data Science Job Market EDA</a></h3>
+          <p>Exploratory Data Analysis on 2024 job postings to identify high-ROI skills. Built multi-panel visualizations to help stakeholders benchmark compensation against skill demand.</p>
+          <div class="project-links">
+            <a href="https://github.com/ipraveenshukla/Python_Data_Projects" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <a href="https://github.com/ipraveenshukla/SQL_Intermediate_Analytics_Project" target="_blank" class="project-image-wrapper">
+          <img src="3_SQL.jpg" alt="SQL Retention and Cohort Analysis" />
+        </a>
+        <div class="project-content">
+          <span class="project-meta">SQL • Customer Analytics</span>
+          <h3><a href="https://github.com/ipraveenshukla/SQL_Intermediate_Analytics_Project" target="_blank">Retention & Cohort Analysis</a></h3>
+          <p>Using PostgreSQL to segment customer bases and analyze churn. Identified that the top 25% of customers drive 66% of revenue, leading to targeted retention strategies.</p>
+          <div class="project-links">
+            <a href="https://github.com/ipraveenshukla/SQL_Intermediate_Analytics_Project" target="_blank" class="project-link">SQL Queries ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background: #0e0e11;">
+  <div class="container">
+    <h2 style="font-family: 'Playfair Display'; margin-bottom: 4rem;">Professional Experience</h2>
+    
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-role">Associate, Donor Relations & Strategic Partnerships</span>
+          <span class="exp-company">UNICEF • New Delhi</span>
+        </div>
+        <span class="exp-date">2024</span>
+      </div>
+      <ul class="exp-points">
+        <li>Managed data-driven engagement for <strong>500+ high-net-worth donors</strong>, contributing to the largest regional campaign contribution.</li>
+        <li>Developed <strong>Excel performance frameworks</strong> to measure outreach effectiveness, enabling real-time strategy optimization.</li>
+        <li>Synthesized complex fundraising data into executive briefing materials for senior leadership.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-role">Customer Operations Specialist</span>
+          <span class="exp-company">Uber • Gurugram</span>
+        </div>
+        <span class="exp-date">2023</span>
+      </div>
+      <ul class="exp-points">
+        <li>Analyzed 100+ daily escalations, improving team response time by <strong>30%</strong>.</li>
+        <li>Tracked weekly KPIs (CSAT, Resolution Rates) for management reporting.</li>
+        <li>Maintained a <strong>95%+ CSAT score</strong>, recognized as a Top Performer in a 50-member team.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrap">
+    <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 1rem;">Let's Talk Data.</h2>
+    <p style="color: var(--text-muted);">I am currently open to opportunities and collaborations.</p>
+    
+    <div class="social-grid">
+      <a href="mailto:in.pshukla@gmail.com" class="social-box">✉️ Email ↗</a>
+      <a href="https://www.linkedin.com/in/ipraveenshukla/" target="_blank" class="social-box">👥 LinkedIn ↗</a>
+      <a href="https://github.com/ipraveenshukla" target="_blank" class="social-box">💻 GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Praveen Shukla</div>
+  <div style="display: flex; gap: 1.5rem;">
+    <a href="#hero">Back to Top ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
